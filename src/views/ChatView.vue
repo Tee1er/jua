@@ -27,22 +27,24 @@ export default {
         }
     },
     mounted() {
-        this.socket = io("https://127.0.0.1:5000")
-        this.socket.on("connect", () => {
+        this.socket = new WebSocket("ws://127.0.0.1:8000/ws")
+        this.socket.onopen = () => {
+            console.log("Connected")
             this.connected = true
-        })
+        }
 
-        this.socket.on("disconnect", () => {
-            this.connected = false
-        })
-
-        this.socket.on("message", (data) => {
+        this.socket.onmessage = (event) => {
             this.messageHistory.push({
                 from: "Jua",
-                message: data.content,
+                message: JSON.parse(event.data).content,
                 time: Date.now()
             })
-        })
+        }
+        this.socket.onclose = () => {
+            console.log("Disconnected")
+            this.connected = false
+        }
+
     },
     methods: {
         query() {
@@ -51,14 +53,14 @@ export default {
                 message: this.currentText,
                 time: Date.now()
             })
-            this.currentText = ""
 
             // Make API request
 
-            this.socket.send({
+            this.socket.send(JSON.stringify({
                 query: this.currentText,
                 device: this.machine.name,
-            })
+            }))
+            this.currentText = ""
         }
     }
 }
