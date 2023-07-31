@@ -16,16 +16,8 @@ export default {
 
 <template>
     <div id="navbar"
-        class="rounded-t-xl flex justify-between items-center px-16 py-3 sticky bottom-0 bg-white border-gray-200 border">
-        <!-- <router-link class="flex flex-col items-center basis-1/3" to="/home">
-            <span class="inline-flex justify-center items-center w-[2rem] h-[2rem] bg-gray-100 text-gray-600 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                        d="M8.125 18.125V13.7438C8.125 13.4375 8.4375 13.125 8.75 13.125H11.25C11.5625 13.125 11.875 13.4375 11.875 13.75V18.125C11.875 18.2908 11.9408 18.4498 12.0581 18.567C12.1753 18.6842 12.3342 18.75 12.5 18.75H17.5C17.6658 18.75 17.8247 18.6842 17.9419 18.567C18.0592 18.4498 18.125 18.2908 18.125 18.125V9.37502C18.1251 9.29289 18.1091 9.21153 18.0778 9.1356C18.0465 9.05968 18.0005 8.99067 17.9425 8.93252L16.25 7.24127V3.12502C16.25 2.95926 16.1842 2.80029 16.0669 2.68308C15.9497 2.56587 15.7908 2.50002 15.625 2.50002H14.375C14.2092 2.50002 14.0503 2.56587 13.9331 2.68308C13.8158 2.80029 13.75 2.95926 13.75 3.12502V4.74127L10.4425 1.43252C10.3844 1.37431 10.3155 1.32814 10.2395 1.29663C10.1636 1.26512 10.0822 1.2489 10 1.2489C9.91779 1.2489 9.83639 1.26512 9.76046 1.29663C9.68453 1.32814 9.61556 1.37431 9.5575 1.43252L2.0575 8.93252C1.9995 8.99067 1.95353 9.05968 1.92221 9.1356C1.8909 9.21153 1.87485 9.29289 1.875 9.37502V18.125C1.875 18.2908 1.94085 18.4498 2.05806 18.567C2.17527 18.6842 2.33424 18.75 2.5 18.75H7.5C7.66576 18.75 7.82473 18.6842 7.94194 18.567C8.05915 18.4498 8.125 18.2908 8.125 18.125Z" />
-                </svg>
-            </span>
-            <span class="text-gray-600 text-xs">Home</span>
-        </router-link> -->
+        class="rounded-t-xl flex justify-between items-center px-16 py-3 fixed bottom-0 w-screen bg-white border-gray-200 border">
+
         <NavbarItem tabName="Home" path="/home"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                 viewBox="0 0 20 20" fill="currentColor">
                 <path

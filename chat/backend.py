@@ -2,6 +2,8 @@
 import os
 from flask import Flask
 from flask import request
+from flask_socketio import SocketIO
+from flask_socketio import send, emit
 
 os.environ["OPENAI_API_KEY"] = "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"
 
@@ -10,6 +12,8 @@ import pickle
 
 docs = Docs()
 app = Flask(__name__)
+
+socketio = SocketIO(app, cors_allowed_origins=["https://127.0.0.1:5173"])
 
 
 def loadDocuments():
@@ -30,9 +34,9 @@ def loadDocuments():
             print("New directory: ", os.path.join(root, name))
 
 
-@app.route("/")
-def query(device, query):
-    json = request.get_json()
+@socketio.on("json")
+def query(json):
+    print("receieved message, ", json)
     device = json["device"]
     query = json["query"]
     # Queries the model for a response
@@ -55,7 +59,7 @@ def query(device, query):
            Answer: {response.answer}\n"""
     )
 
-    return {"content": response.answer}
+    send({"content": response.answer}, json=True)
 
 
 def save():
@@ -68,6 +72,11 @@ def load():
         return pickle.load(f)
 
 
+@socketio.on("connect")
+def connect():
+    print("Connected to client")
+
+
 if os.path.isfile("docs.pkl") and input("Load pickle? (y/n)").lower() == "y":
     docs = load()
 else:
@@ -75,3 +84,6 @@ else:
     loadDocuments()
     print("Saving pickle")
     save()
+
+if __name__ == "__main__":
+    socketio.run(app)

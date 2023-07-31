@@ -26,10 +26,7 @@ export default {
             <div class="mt-6">
                 <h4 class="font-medium text-xl text-gray-700">Ultrasound</h4>
                 <div class="mt-4 mb-8 flex flex-col gap-4">
-                    <MachineCard title="GE LOGIQ series" fullSupport><img class="h-16"
-                            src="../assets/images/ultrasound1.jpg">
-                    </MachineCard>
-                    <MachineCard title="Ultrasound Machine 2"><img class="h-16" src="../assets/images/ultrasound2.jpg">
+                    <MachineCard id="ge-logiq">
                     </MachineCard>
                     <div class="bg-teal-50 rounded-md p-4" role="alert">
                         <div class="flex">
@@ -58,12 +55,7 @@ export default {
                 </div>
                 <h4 class="font-medium text-xl text-gray-700">Infant incubators</h4>
                 <div class="mt-4 flex flex-col gap-4">
-                    <MachineCard title="Incubator Machine 1" fullSupport><img class="h-16"
-                            src="../assets/images/incubator1.jpg">
-                    </MachineCard>
-                    <MachineCard title="Incubator Machine 2" fullSupport><img class="h-16"
-                            src="../assets/images/incubator2.jpg">
-                    </MachineCard>
+                    <!--entries here-->
                 </div>
 
             </div>
